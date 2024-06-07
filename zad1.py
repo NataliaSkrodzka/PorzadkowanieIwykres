@@ -7,11 +7,13 @@ df=pd.read_excel(xlsx, header=0)
 print(df.to_string())
 df2=df.T
 print(df2.to_string())
-df2.columns=['rok', 'ilosc']
-print(df2.to_string())
-df2['kategoria']=df2.index
-print(df2.to_string())
-df2.index=[x for x in range(30)]
+#df2.columns=['rok', 'ilosc']
+#print(df2.to_string())
+#df2['kategoria']=df2.index
+#print(df2.to_string())
+#df2.index=[x for x in range(30)]
+df2.reset_index(inplace=True)
+df2.columns=['kategoria', 'rok', 'ilosc']
 print(df2.to_string())
 df2['kategoria']=df2['kategoria'].str.replace('.1','')
 df2['kategoria']=df2['kategoria'].str.replace('kategorii','')
